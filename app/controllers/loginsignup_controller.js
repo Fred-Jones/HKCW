@@ -1,6 +1,6 @@
 var express = require('express')
 var passport = require('passport')
-
+var gridMid = require('../../mods/gridfs/returngridurlforpic.js')
 // var clearTextDB = require('../../.tocleandir/clearTextDB.js')
 // var CWclearTextDB = new clearTextDB()
 module.exports = function(app){

@@ -18,4 +18,4 @@ mongo_models.forEach(function (model) {
 var app = express();
 
 require('./config/express')(app, config);
-var sock = require('./mods/io/socket_test.js')(app, config.port)// app.listen called from this module
+var sock = require('./mods/io/socket.js')(app, config.port)// app.listen called from this module

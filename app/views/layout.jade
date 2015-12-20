@@ -7,6 +7,7 @@ html(lang='en')
     link(rel="icon" type="image/svg+xml" href="/img/favicon.svg")
     link(href='https://fonts.googleapis.com/css?family=Oswald:300,400,700|Noto+Sans:400,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+    script(src='https://code.jquery.com/jquery-2.1.4.min.js' type='text/javascript')
     block css
       
     block js
@@ -16,7 +17,6 @@ html(lang='en')
   body
     block welcome
     block content
-    script(src='https://code.jquery.com/jquery-2.1.4.min.js')
     block scripts
     if ENV_DEVELOPMENT
       -console.log('sup from jade')

@@ -10,9 +10,17 @@ module.exports = function (app, config) {
       console.log(dt)
       sock.emit('message', 'eyyy sup')
     })
-    sock.on('blizzindexquery', blizzsock.blizzindexquery)
-    sock.on('battlenetquery', blizzsock.battlenetQuery)
-    sock.on('sc2profileprofile', blizzsock.sc2profileprofile)
+
+    socket.on('joinroom', function(roomname) {
+        // if(!rooms[roomname])
+        // // create room
+        // else
+        // // join room
+    })
+    socket.on('closeroom', function(roomname) {
+      //close room
+    })
+
   })
 
   server.listen(config.port)

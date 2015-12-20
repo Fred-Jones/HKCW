@@ -1,5 +1,6 @@
 var Wager = require('../models/mongoosemodels/wager.js')
 var User = require('../models/mongoosemodels/user.js')
+var gridMid = require('../../mods/gridfs/returngridurlforpic.js')
 
 module.exports = function(app) {
   //-var <base> = '/user/acct/#{menuroute}'

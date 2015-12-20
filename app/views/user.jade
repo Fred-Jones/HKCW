@@ -11,27 +11,33 @@ block content
     -var menuitemshover = ['click to accept from a list of wagers', 'click to propose a new wager with a friend', 'click to view completed wagers']
     -var menuroutes = ['acceptable', 'initiated', 'resolved']
       for item, index in menuitems
-        div(class='col-sm-#{12/menuitems.length}' style='padding-top: 1vh; border: 2px solid red; height: 5vh; text-align:center;') 
+        div(class='col-sm-#{12/menuitems.length+1}' style='display: inline-block; border: 2px solid red; height: 10vh; width: 30vw; text-align:center;') 
           a(style='border: 2px solid black;' href='/user/acct/#{menuroutes[index]}' class='#{menuroutes[index]}') #{item}
   .container.wager(style='border: 2px dotted red; height: 20vh;' )
     .row
-      .col-sm-6(style='border: 2px solid black;')
-        div(style='text-align: center; border= 2px solid blue; height: 10%;') 
+      .col-sm-6(style='border: 2px solid black; height: 10vh;')
+        div(style='text-align: center; border= 2px solid blue; height: 20%;') 
           a(href='/user/wager/initiate') Initiate a Wager
-      .col-sm-6(style='border: 2px solid black;')
-        div(style='text-align: center; border= 2px solid blue; height: 10%;') 
+      .col-sm-6(style='border: 2px solid black; height: 10vh;')
+        div(style='text-align: center; border= 2px solid blue; height: 20%;') 
           a(href='/user/wager/accept') Accept a Wager
   .container.prof(style='border: 2px dotted red')  
     .col-sm-6(style='border: 2px solid black; height: 80vh; ')
       div() Profile
+      if user
+        img(src='#{user.picurl}') 
+        div #{user.email}
     .col-sm-6(style='border: 2px solid black; height: 80vh; ')
-      div() Chat
+      div.chatbox()
+        h1 Chat
+        input.chattext(style='width: 100%; height: 10%; border: 2px dotted grey;' placeholder='Enter Message')
+    .chatbutton Send Message 
     
-  - if(newwagerid)
-    div.newwagersuccess New wager completed!
+  //- - if(user.newwagerid) FOR MODAL
+
   
     
 block scripts
-  - if(newwagerid)
-    script(src='/js/jq/newwagersuccess.js')
-  script(src='/js/jq/sendform.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.7/socket.io.min.js')
+  script(src='/js/jq/demochat.js')
+//- script(src='/js/jq/newwagersuccess.js') FOR MODAL

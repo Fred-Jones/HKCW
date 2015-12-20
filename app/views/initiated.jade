@@ -2,4 +2,15 @@ extends layout
 block css
 block js
 block content
+  div.main 
+    h3 Wagers Initiated by You
+  .container
+      if wagers
+        .row
+          for wager in wagers
+            div.initiated(class='col-sm-#{12/(wagers.length)}') #{wager}
+        .row
+          for wager in wagers
+            for i in wager
+              div(class='col-sm-#{12/(i.length)}') #{i}
 block scripts

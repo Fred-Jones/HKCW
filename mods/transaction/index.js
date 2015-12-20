@@ -37,13 +37,14 @@ function __acceptable(req, res, next) {
   })
 }
 
-function __initiate(req, res, next) {
-
-
-}
 function __initiated(req, res, next) {
-  User.findOne({email: req.user.email},function(err, user) {
-    res.send()
+  var user_email = req.user.email
+  console.log(req.user.email, 'WANTS TO SEE INITIATED')
+  User.findOne({email: user_email},function(err, user) {
+    if(err){throw new Error('Error user**', user)}else{
+      console.log(user)
+      res.render('initiated', {wagers: user.wagers || ['None']})
+    }
   })
 }
 function __resovle(req, res, next) {
