@@ -1,6 +1,9 @@
 extends layout
-
-block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+if NODE_ENV == 'development'
+  block content
+    h1= message
+    h2= error.status
+    pre #{error.stack}
+    a(href='/login') Login
+if NODE_ENV == 'production'
+  div #{error}

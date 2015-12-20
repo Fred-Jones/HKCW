@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var compress = require('compression');
 var methodOverride = require('method-override');
 
-var passport = require('passport')
+var passport = require('passport');
 
 
 
@@ -37,7 +37,10 @@ app.use('/favicon.ico', express.static('/public/favicon.ico'));
   app.use(passport.initialize());
   app.use(passport.session());
 
+  // ATTACH MIDDLEWARE
   passportMod = require('../mods/passport/passportmods.js')(app)
+  transactionMod = require('../mods/transaction/index.js')(app)
+
   var controllers = glob.sync(config.root + '/app/controllers/*.js');
   controllers.forEach(function (controller) {
     require(controller)(app);

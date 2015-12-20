@@ -1,23 +1,39 @@
 extends layout
 block css
+  link(rel='stylesheet' href='/css/authtypecheckbox.css')
 block js
 block content
   .description
     h2 Initiate a Wager
+    div.topmenu(style='display: inline-block; margin-bottom: 5vh;')
+      a(href='/user/wager/accept' style='margin-left: 10px; left: 0px; text-decoration: underline;') Accept
+      a(href='/user/acct/initiated' style='margin-left: 10px; left: 0px; text-decoration: underline;') Initiated
+      a(href='/user/acct/acceptable' style='margin-left: 10px; left: 0px; text-decoration: underline;') Acceptable
     
-  .container
-    h4(style='margin-left: 10px;') 1. Enter Ammout to Wager
-    .col-md-4(style='border: 2px solid blue; height: 40px;')
-      input(name='friendId' placeholder='Enter Ammount' style='width: 70%; height: 30px; margin-top: 2px; margin-left: 5%;')
-    div.enterfriendsiddesc(style=' width: 100%;')
-      h4(style='  margin-left: 10px; width: 60%; display: inline-block; ') 2. Enter your friends id
-      p(style='  margin-left:10px; width: 30%; display: inline-block; font-size: 10px; ') *Seth's Id is is 1*
-    .col-md-4(style='border: 2px solid red; height: 40px;')
-      input(name='amount' placeholder='Enter Friend\'s Id' style='width: 70%; height: 30px; margin-top: 2px; margin-left: 5%;')
-    a.btn.btn-danger.initwgr(href='#') Initiate This Wager »
+  .container(style='border: 2px dotted grey;')
+    .authtype.row()
+      h4(style='margin-left: 10px;') 1. Select Authentication Type
+      div.col-sm-4(style='border: 2-x solid blue;') Auth Type: Local Auth
+        input(type='checkbox' checked) 
+      div.col-sm-4(style='border: 2-x solid blue;') Auth Type: Microsoft Email 
+        input(type='checkbox')
+      div.col-sm-4(style='border: 2-x solid blue;') Auth Type: OAuth
+        input(type='checkbox')
+  .container(style='border: 2px dotted grey;')
+    .text.row()
+      h4(style='margin-left: 10px;') 2. Enter Ammout to Wager
+      .col-md-4(style='border: 2px solid blue; height: 40px;')
+        input.amount(name='ammount' placeholder='Enter Ammount Bitcoin' style='width: 70%; height: 30px; margin-top: 2px; margin-left: 5%;')
+      div.enterfriendsiddesc(style=' width: 100%;')
+        h4(style='  margin-left: 10px; width: 60%; display: inline-block; ') 3. Enter your friends id
+        p(style='  margin-left:10px; width: 30%; display: inline-block; font-size: 10px; ') *Seth's email is is 1*
+      .col-md-4(style='border: 2px solid red; height: 40px;')
+        input.friendsEmail(name='friendsEmail' placeholder='Enter Friends Email' style='width: 70%; height: 30px; margin-top: 2px; margin-left: 5%;')
+      a.btn.btn-danger.initwgr(href='#' style='margin-left:10px;') 4. Initiate This Wager »
+      //-resolve date?? you want it or not??
 
 block scripts
   script(src='/js/jq/initiate.js')
-  script(src='/js/jq')
-  script(src='/js/jq')
+  //- script(src='/js/jq')
+  //- script(src='/js/jq')
     

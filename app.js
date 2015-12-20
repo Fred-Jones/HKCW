@@ -1,5 +1,5 @@
 
-
+//TODO ENCRYPTION STRATEGY CLEAN QUERIES
 var express = require('express'),
   config = require('./config/config'),
   glob = require('glob'),

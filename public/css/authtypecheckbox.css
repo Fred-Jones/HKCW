@@ -1,0 +1,11 @@
+input[type=checkbox]
+{
+  margin: 15px;
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2.3); /* IE */
+  -moz-transform: scale(2.3); /* FF */
+  -webkit-transform: scale(2.3); /* Safari and Chrome */
+  -o-transform: scale(2.3); /* Opera */
+  padding: 10px;
+
+}

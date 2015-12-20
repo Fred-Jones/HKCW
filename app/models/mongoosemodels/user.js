@@ -5,6 +5,7 @@ var UserSchema = new Schema({
   username: String,
   email: String,
   password: String,
+  phone: String,
   piclink: String,
   wagers: {},
   creditcard: String //encrypt credit card

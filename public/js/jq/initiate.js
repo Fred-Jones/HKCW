@@ -6,28 +6,30 @@ function initiateWager() {
   var count = 0;
   $('.btn.initwgr').click(function(e) {
     console.log('init wager client')
-    console.log()
+    console.log($('.friendsEmail').val())
     $.ajax({
       method: 'POST',
       data: {
-        acceptorid: ($('.acceptorid').value)
+        friendsEmail: $('.friendsEmail').text,
+        ammount: $('.ammount').text
       },
       success: function(dt) {
                               console.log('success')
+                              console.log(dt)
                               if($('.modal')){
                                 $('.modal').remove()
                               }
                               var $modal = $('<div/>')
                               $modal.attr({
                                             class:'modal',
-                                            style: 'position: absolute; width: 100vw; height: 60vh; ',
+                                            style: 'position: relative; width: 100vw; height: 60vh; ',
 
-                                          }).text(count + '\n' + '\n' + dt)
+                                          }).text(dt.initiatesuccess + '\n' + count)
                               count += 1
                               $('body').append($modal)
                               $modal.fadeOut(0)
                               $modal.fadeIn(1000)
-                              console.log(dt)
+
                             }
     })
 

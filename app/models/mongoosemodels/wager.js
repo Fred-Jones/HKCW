@@ -4,10 +4,11 @@ var mongoose = require('mongoose'),
 
  var WagerSchema = new Schema({
  	initiator_mdb_id: String,
- 	acceptee_mdb_id: String,
- 	ammount_wafered: String,
+ 	acceptor_mdb_id: String,
+ 	ammount_wagered: String,
  	currency_wagered: String,
  	transaction_id: String,
+  fulfillmentdate: String,
  	fulfillment_confirmed: false
  })
  module.exports = mongoose.model('Wager', WagerSchema)

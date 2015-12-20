@@ -39,11 +39,16 @@ function __login(req, res, next) {
 }
 function __is_authenticated(req, res, next) {
   console.log('User authed? ', req.isAuthenticated())
-  if(!req.isAuthenticated()) {
-    res.redirect('/login')
+  if(req.isAuthenticated()) {
+    next()
     return
+  }else{
+    console.log('Unauthed**', req)
+    res.render('error', {
+      error: new Error('Unauthed')
+    })
   }
-  next()
+
 }
 function __logout(req, res) {
   console.log('__logout ', req.username)
