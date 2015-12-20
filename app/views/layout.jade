@@ -1,0 +1,18 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width')
+    title= title
+    block css
+      link(rel='stylesheet', href='/css/style.css')
+      link(rel='stylesheet', href='/public/components/bootstrap')
+    block js
+      
+        
+  body
+    block welcome
+    block content
+    block scripts
+    if ENV_DEVELOPMENT
+    

@@ -1,0 +1,34 @@
+extends layout
+
+block js
+  script(src='/components/jquery/dist/jquery.min.js')
+  script(src='/js/firstvisitjq.js')
+block welcome
+  h1= title
+  p Welcome to #{title}
+block content
+  .buttons(style='position: width: 20vw; height: 5vw; border: 2px solid red')
+    div.lgnbtn(style='display: inline-block; width:50%; height:50%')
+      for l in 'Login'
+        p(style='display: inline-block') #{l}
+    div.sgnbtn(style='display: inline-block; width:50%; height:50%')
+      for s in 'Signup'
+        p(style='display: inline-block') #{s}
+    
+  .lgnmodal.container(style='width: 75vw; height: 65vh; border: 2px solid grey; margin-left: auto; margin-right: auto;')
+    
+div.footer
+    
+    
+block scripts
+  script(src='')
+
+      
+
+      
+  
+
+
+
+
+  
