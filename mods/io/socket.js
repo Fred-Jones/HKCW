@@ -40,4 +40,9 @@ module.exports = function (app, config) {
     socket.emit('message', dt)
   })
 
+  app.get('/user/chat/newroom', function(req, res, next) {
+    //send name of room with each message but just hidden
+    // io.of(req.body/newroomunique)
+  })
+
 }
