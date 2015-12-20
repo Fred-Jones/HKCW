@@ -1,0 +1,10 @@
+extends layout
+block content
+  if user.wagers
+    for wager in user.acceptable
+      div()
+        p #{wager}
+  if !user.wagers
+    div Shits fucked
+  
+    

@@ -5,16 +5,16 @@ var express = require('express'),
   glob = require('glob'),
   mongoose = require('mongoose');
 
-// mongoose.connect(config.db);
-// var db = mongoose.connection;
-// db.on('error', function () {
-//   throw new Error('unable to connect to database at ' + config.db);
-// });
-//
-// var mongo_models = glob.sync(config.root + '/app/models/mongoosemodels/*.js');
-// mongo_models.forEach(function (model) {
-//   require(model);
-// });
+mongoose.connect(config.db);
+var db = mongoose.connection;
+db.on('error', function () {
+  throw new Error('unable to connect to database at ' + config.db);
+});
+
+var mongo_models = glob.sync(config.root + '/app/models/mongoosemodels/*.js');
+mongo_models.forEach(function (model) {
+  require(model);
+});
 var app = express();
 
 require('./config/express')(app, config);

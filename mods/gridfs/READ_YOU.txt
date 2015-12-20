@@ -1,0 +1,1 @@
+return a link to the users gridsfs profile picture

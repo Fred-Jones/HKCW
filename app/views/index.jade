@@ -5,15 +5,13 @@ block js
   script(src='/js/firstvisitjq.js')
 block welcome
   h1= title
-  p Welcome to #{title}
+  h5 Welcome to #{title}
 block content
-  .buttons(style='position: width: 20vw; height: 5vw; border: 2px solid red')
-    div.lgnbtn(style='display: inline-block; width:50%; height:50%')
-      for l in 'Login'
-        p(style='display: inline-block') #{l}
-    div.sgnbtn(style='display: inline-block; width:50%; height:50%')
-      for s in 'Signup'
-        p(style='display: inline-block') #{s}
+  .container.buttons(style='position: absolute; bottom: 0px; right: 0px; height: 15vh;  width: 77vw; border: 2px solid red;  ')
+    div.lgnbtn(style='margin-top: 20px; padding-top: 10px; border: 2px solid blue; display: inline-block; text-align: center; width:50%; height:50%')
+      a(href='login' style='') Login 
+    div.sgnbtn(style='margin-top: 20px; padding-top: 10px; border: 2px solid blue; display: inline-block; text-align: center; width:50%; height:50%')
+      a(href='signup' style='') Signup
     
   .lgnmodal.container(style='width: 75vw; height: 65vh; border: 2px solid grey; margin-left: auto; margin-right: auto;')
     

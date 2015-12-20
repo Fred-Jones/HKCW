@@ -1,8 +1,7 @@
 var LocalStrategy = require('passport-local').Strategy,
  OAuthStrategy = require('passport-oauth').OAuthStrategy,
- OpenIDStrategy = require('passport-openid'),
- TwitterStrategy = require('passport-twitter');
-var User = require('../app/models/user.js');
+ OpenIDStrategy = require('passport-openid');
+var User = require('../../app/models/mongoosemodels/user.js');
 var bc = require('bcryptjs')
 // var adminbc = require('../app/models/user\.admin\.semilla\.js')
 
@@ -28,6 +27,5 @@ module.exports = [
   )//,
   // OAuthStrategy: new OAuthStrategy(new OAuthStrategy(function() {})),
   // OpenIDStrategy: new OpenIDStrategy(),
-  // TwitterStrategy: new TwitterStrategy()
-]
 
+]

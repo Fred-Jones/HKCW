@@ -18,5 +18,4 @@ UserSchema.virtual('date')
     return this._id.getTimestamp();
   });
 
-mongoose.model('User', UserSchema);
-
+module.exports = mongoose.model('User', UserSchema);

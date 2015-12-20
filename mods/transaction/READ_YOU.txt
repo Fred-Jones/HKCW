@@ -1,0 +1,9 @@
+middleware should recognize req.transaction
+req.transaction = {
+  initiator: String,
+  acceptor: String,
+  currency: String,
+  amount: String,
+  description: String,
+  resolvedate: <optional>
+}

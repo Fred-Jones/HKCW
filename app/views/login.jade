@@ -1,0 +1,10 @@
+extends layout
+block content
+  a(href='/') Go Back
+  h1 Login
+  form(action='/login' method='POST') 
+    input(name='authtype' type='text' value='local')
+    input(id='username' name='username' type='text' placeholder='username')
+    input(id='password' name='password' type='password' placeholder='password')
+    input(id='submitButton' type='submit' text='Submit')
+  script(src='https://code.jquery.com/jquery-2.1.4.min.js')

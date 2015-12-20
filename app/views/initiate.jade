@@ -1,0 +1,23 @@
+extends layout
+block css
+block js
+block content
+  .description
+    h2 Initiate a Wager
+    
+  .container
+    h4(style='margin-left: 10px;') 1. Enter Ammout to Wager
+    .col-md-4(style='border: 2px solid blue; height: 40px;')
+      input(name='friendId' placeholder='Enter Ammount' style='width: 70%; height: 30px; margin-top: 2px; margin-left: 5%;')
+    div.enterfriendsiddesc(style=' width: 100%;')
+      h4(style='  margin-left: 10px; width: 60%; display: inline-block; ') 2. Enter your friends id
+      p(style='  margin-left:10px; width: 30%; display: inline-block; font-size: 10px; ') *Seth's Id is is 1*
+    .col-md-4(style='border: 2px solid red; height: 40px;')
+      input(name='amount' placeholder='Enter Friend\'s Id' style='width: 70%; height: 30px; margin-top: 2px; margin-left: 5%;')
+    a.btn.btn-danger.initwgr(href='#') Initiate This Wager »
+
+block scripts
+  script(src='/js/jq/initiate.js')
+  script(src='/js/jq')
+  script(src='/js/jq')
+    

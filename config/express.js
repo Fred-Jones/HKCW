@@ -9,7 +9,9 @@ var bodyParser = require('body-parser');
 var compress = require('compression');
 var methodOverride = require('method-override');
 
-var passportMod = require('../mods/passport/passport.js')(app)
+var passport = require('passport')
+
+
 
 module.exports = function(app, config) {
   app.set('views', config.root + '/app/views');
@@ -19,7 +21,8 @@ module.exports = function(app, config) {
   app.locals.ENV = env;
   app.locals.ENV_DEVELOPMENT = env == 'development';
 
-  // app.use(favicon(config.root + '/public/img/favicon.ico'));
+app.use('/favicon.ico', express.static('/public/favicon.ico'));
+
   app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({
@@ -30,6 +33,11 @@ module.exports = function(app, config) {
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
 
+  app.use(session({secret: 'yoot', saveUninitialized: true, resave:true}));
+  app.use(passport.initialize());
+  app.use(passport.session());
+
+  passportMod = require('../mods/passport/passportmods.js')(app)
   var controllers = glob.sync(config.root + '/app/controllers/*.js');
   controllers.forEach(function (controller) {
     require(controller)(app);

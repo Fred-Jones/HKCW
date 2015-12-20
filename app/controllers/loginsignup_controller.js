@@ -5,15 +5,17 @@ var passport = require('passport')
 // var CWclearTextDB = new clearTextDB()
 module.exports = function(app){
 
-  app.get('/login/', app.login, function(req, res, nxt) {
-
+  app.get('/login', function(req, res, next) {
+    res.render('login')
   })
-  app.get('/logout')
-  app.get('/atrium' + , function(req, res, nxt) {
-    res.render('atrium')
-    nxt()
+  app.post('/login', app.login, function(req, res, next) {
+    res.redirect('/user')
   })
-  app.post('/signup', app.signupfunction(req, res, nxt) {
-
+  app.get('/signup', function(req, res, next) {
+    res.render('signup')
   })
+  app.post('/signup', app.signup, function(req, res, next) {
+    res.redirect('/user', {welcomemessage: 'Welcome New '})
+  })
+  app.get('/logout', app.logout)
 }
