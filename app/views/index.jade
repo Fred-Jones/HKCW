@@ -13,12 +13,32 @@ block content
     div.sgnbtn(style='margin-top: 20px; padding-top: 10px; border: 2px solid blue; display: inline-block; text-align: center; width:50%; height:50%')
       a(href='signup' style='') Signup
     
-  .lgnmodal.container(style='width: 75vw; height: 65vh; border: 2px solid grey; margin-left: auto; margin-right: auto;')
+      .lgnmodal(style='width: 75vw; height: 65vh; border: 2px solid grey; margin-left: auto; margin-right: auto;')
     
-div.footer
+    div.footer
+  style(type='text/css').
     
+    body{
+      width: 100vw;
+      height: 100vh;
+      background-image: url('https://i.ytimg.com/vi/mwFHskeAHtE/maxresdefault.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: black;
+    }
+    h1{
+      margin: 20px;
+    }
+    h5{
+      margin-left: 50px;
+      margin-top: 10px;
+      color: white;
+    }
     
 block scripts
+  script(type='text/javascript').
+    $('.lgnmodal').hide()
 
 
       
