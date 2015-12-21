@@ -7,10 +7,8 @@ var UserSchema = new Schema({
   password: String,
   phone: String,
   piclink: String,
-  wagers: {},
-  creditcard: String //encrypt credit card
-
-
+  creditcard: String, //encrypt credit card
+  wagers: [String] //an array of Wager.meta json strings
 
 });
 
@@ -20,3 +18,5 @@ UserSchema.virtual('date')
   });
 
 module.exports = mongoose.model('User', UserSchema);
+
+//for wager in wagers if wager.meta

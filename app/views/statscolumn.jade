@@ -1,0 +1,66 @@
+ul(id='table' class='nav nav-tabs' role='tablist')
+  h3.statstablehead Wager HUD
+  li.active
+    a(id='wow' role='tab' data-toggle='tab').
+      ACCEPTABLE
+  li
+    a(id='lol' role='tab' data-toggle='tab').
+      INITIATED
+  li
+    a(id='sc2' role='tab' data-toggle='tab').
+      PENDING
+  li
+    a(id='dblo' role='tab' data-toggle='tab').
+      RESOLVED
+
+ //- tab panes
+.tab-content
+  div(id='twow' class='tab-pane fade in active')
+    h3 ACCEPTABLE
+    p Append data here on tab click (delete this)
+  div(id='tlol' class='tab-pane fade in')
+    h3 INITIATED
+    p Append data here on tab click (delete this)
+  div(id='tsc2' class='tab-pane fade in')
+    h3 PENDING
+    p Append data here on tab click (delete this)
+  div(id='tdblo' class='tab-pane fade in')
+    h3 RESOLVED
+    p Append data here on tab click (delete this)
+    
+style(type='text/css').
+  .nav.nav-tabs {
+    color: blue;
+
+  }
+
+  .tab-pane {
+
+
+  }
+
+  .tab-pane.active {
+
+  }
+
+  .tab-pane>p {
+    color: red;
+
+  }
+script(type='text/javascript').
+  //G2G
+  console.log('tabs')
+  $('a').click(function(e) {
+    var oldid = $('#table').find('li.active').find('a').attr('id')
+    var clickedid = e.toElement.id
+    var oldtab = ($('#t' + oldid))
+    var totab = ($('#t' + clickedid))
+    var oldli = ($('#table').find('li.active'))
+    var newli = ($('#' + clickedid).parent())
+    console.log(oldid, clickedid)
+      oldtab.removeClass('active')
+      oldli.removeClass('active')
+      newli.addClass('active')
+      totab.addClass('active')
+    
+  })

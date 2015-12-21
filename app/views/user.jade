@@ -2,17 +2,19 @@ extends layout
 block css
   link(href='https://fonts.googleapis.com/css?family=Oswald:400,300,700&subset=latin,latin-ext' rel='stylesheet' type='text/css')
   link(rel='stylesheet' href='/css/user.css')
-  link(rel='stylesheet' href='')
   
 block js
+  script(src='components/underscore/underscore-min.js')
+  script(src='components/jquery/dist/jquery.min.js')
+  script(src='src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
 block content
   .container.buttons(style='border: 2px dotted blue;')
-    -var menuitems = ['Wagers to Accept', 'Initiated Wagers', 'Resolved Wagers']
-    -var menuitemshover = ['click to accept from a list of wagers', 'click to propose a new wager with a friend', 'click to view completed wagers']
-    -var menuroutes = ['acceptable', 'initiated', 'resolved']
-      for item, index in menuitems
-        div(class='col-sm-#{12/menuitems.length+1}' style='display: inline-block; border: 2px solid red; height: 10vh; width: 30vw; text-align:center;') 
-          a(style='border: 2px solid black;' href='/user/acct/#{menuroutes[index]}' class='#{menuroutes[index]}') #{item}
+      -var menuitems = ['Wagers to Accept', 'Initiated Wagers', 'Resolved Wagers']
+      -var menuitemshover = ['click to accept from a list of wagers', 'click to propose a new wager with a friend', 'click to view completed wagers']
+      -var menuroutes = ['acceptable', 'initiated', 'resolved']
+        for item, index in menuitems
+          div(style='display: inline-block; border: 2px solid red; height: 10vh; width: 30vw; text-align:center;') 
+            a(style='border: 2px solid black;' href='/user/acct/#{menuroutes[index]}' class='#{menuroutes[index]}') #{item}
   .container.wager(style='border: 2px dotted red; height: 20vh;' )
     .row
       .col-sm-6(style='border: 2px solid black; height: 10vh;')
@@ -22,16 +24,21 @@ block content
         div(style='text-align: center; border= 2px solid blue; height: 20%;') 
           a(href='/user/wager/accept') Accept a Wager
   .container.prof(style='border: 2px dotted red')  
-    .col-sm-6(style='border: 2px solid black; height: 80vh; ')
+    .col-sm-6(style='border: 2px solid black; height: 100vh; ')
       div() Profile
       if user
-        img(src='#{user.picurl}') 
+        div.img(style='width: 23vw; background-image: url(#{user.picurl});background-size: contain;background-repeat: no-repeat;background-position: center;')
+          div.imgbox(style='width: 50px; height: 100px; left: 0px;') 
         div #{user.email}
-    .col-sm-6(style='border: 2px solid black; height: 80vh; ')
+        div #{user.wagers.acceptable}
+        div #{user.wagers.initiated}
+        div #{user.resolved}
+        include ./statscolumn.jade
+    .col-sm-6(style='border: 2px solid black; height: 100vh; ')
       div.chatbox()
         h1 Chat
         input.chattext(style='width: 100%; height: 10%; border: 2px dotted grey;' placeholder='Enter Message')
-    .chatbutton Send Message 
+        button.chatbutton(style='position: relative;left: 189px;') Send Message 
     
   //- - if(user.newwagerid) FOR MODAL
 

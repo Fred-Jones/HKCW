@@ -10,7 +10,7 @@ function initiateWager() {
     $.ajax({
       method: 'POST',
       data: {
-        friendsEmail: $('.friendsEmail').text,
+        friendsEmail: $('.friendsEmail').val(),
         ammount: $('.ammount').text
       },
       success: function(dt) {

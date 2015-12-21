@@ -7,10 +7,10 @@ block content
   .container
       if wagers
         .row
-          for wager in wagers
-            div.initiated(class='col-sm-#{12/(wagers.length)}') #{wager}
-        .row
-          for wager in wagers
-            for i in wager
-              div(class='col-sm-#{12/(i.length)}') #{i}
+          for wager, i in wagers.initiated_wagers
+            div.acceptid() Wager with userID: #{wagers.acceptorid[i]}
+            div(class='col-sm-#{4}') Ammount wagered: #{wager.ammount_wagered}
+            div(class='col-sm-#{4}') Authentication-type: #{wager.auth}
+            div(class='col-sm-#{4}') Currency: #{wager.currency}
+            
 block scripts

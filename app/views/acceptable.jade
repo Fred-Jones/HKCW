@@ -3,8 +3,15 @@ block css
 block js
 block content
   h1 Acceptable Wagers
+  
   .container
-    .row
-      div #{wagers}
+    if wagers
+      .row
+        for wager, i in wagers.acceptable_wagers
+          div.initid() Wager with userID: #{wagers.initiatorid[i]}
+          div(class='col-sm-#{4}') Ammount wagered: #{wagers.acceptable_wagers[i].ammount_wagered}
+          div(class='col-sm-#{4}') Authentication-type: #{wagers.acceptable_wagers[i].auth}
+          div(class='col-sm-#{4}') Currency: #{wagers.acceptable_wagers[i].currency}
+           
         
 block scripts
