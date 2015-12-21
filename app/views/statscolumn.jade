@@ -29,9 +29,20 @@ ul(id='table' class='nav nav-tabs' role='tablist')
     p Append data here on tab click (delete this)
     
 style(type='text/css').
-  .nav.nav-tabs {
+  .nav.nav-tabs>li>a {
+  color: blue;
+  display: inline-block;
+  font-size: 1vw;
+  
+  }
+  @media screen and (max-width: 500px){
+    .nav.nav-tabs>li>a {
     color: blue;
-
+    display: inline-block;
+    font-size: 2vw;
+    
+    }
+  
   }
 
   .tab-pane {
